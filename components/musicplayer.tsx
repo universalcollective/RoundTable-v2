@@ -65,44 +65,43 @@ const MusicPlayer: React.FC = () => {
   };
 
   return (
-   <div className={`fixed bottom-4 left-4 rounded-lg bg-white p-3 shadow-md ${isMinimized ? 'minimized' : ''}`}>
+    <div className="fixed bottom-4 left-4 rounded-lg bg-white p-3 shadow-md">
       <div className="flex items-center">
         <audio ref={audioRef} src="/eym.mp3" />
-        <button
-          className="rounded-md px-2 py-1 text-black"
-          onClick={handlePlayPause}
-        >
-          {isPlaying ? (
-            <PauseIcon fontSize="medium" />
-          ) : (
-            <PlayArrowIcon fontSize="medium" />
-          )}
-        </button>
-        <div className="ml-4">
-          <div className="text-sm font-semibold" style={{ color: '#b12f12' }}>
-            Ease Your Mind
-          </div>
-          <div className="text-xs text-gray-500">GRiZ x Ganja White Night</div>
-          <div className="text-xs text-gray-500">
-            {formatTime(currentTime)}
-          </div>
-        </div>
-        <button className="ml-4 text-black">
-          <VolumeUpIcon fontSize="small" />
-        </button>
-        <input
-          className="ml-2 h-1 w-14 rounded-lg"
-          type="range"
-          min="0"
-          max="1"
-          step="0.01"
-          value={volume}
-          onChange={handleVolumeChange}
-          style={{ '--thumb-color': '#b12f12' } as React.CSSProperties}
-        />
+        {isMinimized ? (
+          <button className="rounded-md px-2 py-1 text-black" onClick={handlePlayPause}>
+            {isPlaying ? <PauseIcon fontSize="medium" /> : <PlayArrowIcon fontSize="medium" />}
+          </button>
+        ) : (
+          <>
+            <button className="rounded-md px-2 py-1 text-black" onClick={handlePlayPause}>
+              {isPlaying ? <PauseIcon fontSize="medium" /> : <PlayArrowIcon fontSize="medium" />}
+            </button>
+            <div className="ml-4">
+              <div className="text-sm font-semibold" style={{ color: '#b12f12' }}>
+                Ease Your Mind
+              </div>
+              <div className="text-xs text-gray-500">GRiZ x Ganja White Night</div>
+              <div className="text-xs text-gray-500">{formatTime(currentTime)}</div>
+            </div>
+            <button className="ml-4 text-black">
+              <VolumeUpIcon fontSize="small" />
+            </button>
+            <input
+              className="ml-2 h-1 w-14 rounded-lg"
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value={volume}
+              onChange={handleVolumeChange}
+              style={{ '--thumb-color': '#b12f12' } as React.CSSProperties}
+            />
+          </>
+        )}
       </div>
     </div>
   );
-};
+        }  
 
 export default MusicPlayer;
