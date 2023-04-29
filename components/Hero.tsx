@@ -38,7 +38,7 @@ const Hero = () => {
       <div>
         <div
           ref={refContainer}
-          className="min-h-screen w-full sticky -z-10 top-0 left-0"
+          className="min-h-screen min-w-screen sticky -z-10 top-0 left-0"
           style={{ transform: `translateY(-${progress * 20}vh)` }}
         >
           <Image
