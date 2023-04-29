@@ -1,13 +1,15 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import IntroText from '../components/IntroText'
 import Hero from '../components/Hero'
 import About from '../components/About'
+import Example from '../components/About copy'
 // import ImageLinks from '../components/Images'
 import MusicPlayer from '../components/musicplayer'
 import FloatingIcons from '../components/sidebar'
 import Footer from '../components/FooterComponent'
-
+import Timeline from '../components/Timeline'
+import Gallery from '../components/Gallery'
+import Team from '../components/Team'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlay, faPause, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
 
@@ -25,15 +27,21 @@ const Home: NextPage = () => {
      
       <Hero />
 
-      <IntroText />
       {/* <ImageLinks /> */}
 
       {/* Section 1 */}
-      <About /> 
-
+      <About />
+      <Gallery />
       {/* Section 2 */}
+      
+      <Example /> 
+
       <About />
 
+      <Timeline />
+      <About />
+      <Team />
+      <About />
       <Footer />
       <MusicPlayer />
       <FloatingIcons />

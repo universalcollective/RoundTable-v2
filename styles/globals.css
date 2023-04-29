@@ -19,6 +19,18 @@ body {
   color: #b12f12;
 }
 
+.bg-custom:hover {
+  background-color: #b12f12;
+}
+.text-custom:hover {
+  color: #b12f12;
+}
+.progress-bar {
+  background-color: red;
+  width: 0;
+}
+
+
 .home-label {
   position: absolute;
   top: 50%;
@@ -93,6 +105,17 @@ input[type='range']::-moz-range-thumb {
   border-radius: 50%;
   background-color: #b12f12;
   cursor: pointer;
+}
+
+.redBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background-color: red;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-out;
 }
 
 

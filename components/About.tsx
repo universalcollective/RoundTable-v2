@@ -30,7 +30,7 @@ const About = () => {
       />
     </div>
 
-    <section className="w-full border-t border-gray-100 bg-white p-20 text-center text-md text-gray-400 lg:p-40">
+    <section className="w-full border-t border-gray-100 bg-white p-20 text-center text-large text-gray-400 lg:p-40">
         <div>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquet
