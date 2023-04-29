@@ -1,53 +1,54 @@
-import React, { useState, useRef, useEffect } from 'react'
-import PlayArrowIcon from '@mui/icons-material/PlayArrow'
-import PauseIcon from '@mui/icons-material/Pause'
-import VolumeUpIcon from '@mui/icons-material/VolumeUp'
+import React, { useState, useRef, useEffect } from 'react';
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PauseIcon from '@mui/icons-material/Pause';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 const MusicPlayer: React.FC = () => {
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [volume, setVolume] = useState(0.45)
-  const [currentTime, setCurrentTime] = useState(0)
-  const [duration, setDuration] = useState(0)
-  const audioRef = useRef<HTMLAudioElement>(null)
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(0.45);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const handlePlayPause = () => {
     if (audioRef.current) {
       if (audioRef.current.paused) {
-        audioRef.current.play()
-        setIsPlaying(true)
+        audioRef.current.play();
+        setIsPlaying(true);
       } else {
-        audioRef.current.pause()
-        setIsPlaying(false)
+        audioRef.current.pause();
+        setIsPlaying(false);
       }
     }
-  }
+  };
 
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.addEventListener('loadedmetadata', () => {
-        setDuration(audioRef.current.duration)
-      })
+        setDuration(audioRef.current?.duration || 0);
+      });
       audioRef.current.addEventListener('timeupdate', () => {
-        setCurrentTime(audioRef.current.currentTime)
-      })
+        setCurrentTime(audioRef.current.currentTime);
+      });
     }
-  }, [audioRef.current])
+  }, [audioRef.current]);
 
   const handleVolumeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newVolume = Number(event.target.value)
-    setVolume(newVolume)
+    const newVolume = Number(event.target.value);
+    setVolume(newVolume);
     if (audioRef.current) {
-      audioRef.current.volume = newVolume
+      audioRef.current.volume = newVolume;
     }
-  }
+  };
 
   const formatTime = (time: number) => {
-    const minutes = Math.floor(time / 60)
+    const durationInSeconds = audioRef.current?.duration || 0;
+    const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60)
       .toString()
-      .padStart(2, '0')
-    return `${minutes}:${seconds}`
-  }
+      .padStart(2, '0');
+    return `${minutes}:${seconds} / ${Math.floor(durationInSeconds / 60)}:${Math.floor(durationInSeconds % 60).toString().padStart(2, '0')}`;
+  };
 
   return (
     <div className="fixed bottom-4 left-4 rounded-lg bg-white p-3 shadow-md">
@@ -69,7 +70,7 @@ const MusicPlayer: React.FC = () => {
           </div>
           <div className="text-xs text-gray-500">GRiZ x Ganja White Night</div>
           <div className="text-xs text-gray-500">
-            {formatTime(currentTime)} / {formatTime(duration)}
+            {formatTime(currentTime)}
           </div>
         </div>
         <button className="ml-4 text-black">
@@ -87,7 +88,7 @@ const MusicPlayer: React.FC = () => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MusicPlayer
+export default MusicPlayer;
