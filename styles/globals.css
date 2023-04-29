@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  padding: 0;
+  background-color: white;
+  margin: 0;
+  font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', Helvetica,
+    Arial, sans-serif;
+  line-height: 1.1;
+}
+
+
+.bg-custom {
+  background-color: #b12f12;
+}
+.text-custom {
+  color: #b12f12;
+}
+
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.preloader-text {
+  font-size: 5rem;
+  color: #fff;
+  opacity: 0;
+}
+
+.home-label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 2rem;
+  color: #b12F12;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.group:hover .home-label {
+  opacity: 1;
+}
+
+button {
+  margin-right: 10px;
+  padding: 10px;
+}
+
+button:hover {
+  background-color: #ffffff; /* Change this color to the desired hover color */
+  transform: scale(1.5); /* Change this value to adjust the scale of the button on hover */
+}
+
+button:hover svg {
+  fill: #b12f12; /* Change this color to the desired hover color for the SVG icon */
+}
+
+
+.footer-link {
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: #b12f12 !important;
+  text-decoration: underline;
+}
+
+.flex a:hover svg,
+.flex a:hover svg path {
+  fill: #b12f12;
+}
+
+input[type='range'] {
+  -webkit-appearance: none;
+  width: 30%;
+  height: 8px;
+  background: linear-gradient(to right, #6b0f8f, #b12f12);
+  border-radius: 5px;
+  outline: none;
+}
+
+
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #b12f12;
+  cursor: pointer;
+}
+
+input[type='range']::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #b12f12;
+  cursor: pointer;
+}
+
