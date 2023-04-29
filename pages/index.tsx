@@ -11,7 +11,6 @@ import Footer from '../components/FooterComponent'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPlay, faPause, faVolumeUp } from '@fortawesome/free-solid-svg-icons'
 
-// import Preloader from '../components/preloader'
 // import Hero2 from '../components/Hero2'
 
 library.add(faPlay, faPause, faVolumeUp)
