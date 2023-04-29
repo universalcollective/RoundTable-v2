@@ -65,7 +65,7 @@ const MusicPlayer: React.FC = () => {
   };
 
   return (
-    <div className={`fixed bottom-4 left-4 rounded-lg bg-white p-3 shadow-md ${isMinimized ? 'w-20' : 'w-90'}`}>
+    <div className={`fixed bottom-4 left-4 rounded-lg bg-white p-3 shadow-md ${isMinimized ? 'w-10' : 'w-90'}`}>
       <div className="flex items-center">
         <audio ref={audioRef} src="/eym.mp3" />
         <button
