@@ -1,3 +1,5 @@
+
+
 import Image from 'next/image'
 import { useContext, useRef } from 'react'
 import { ScrollContext } from '../utils/scroll-observer'

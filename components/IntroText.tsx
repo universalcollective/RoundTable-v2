@@ -1,3 +1,5 @@
+
+import React from 'react';
 import { useContext, useRef } from 'react'
 import { ScrollContext } from '../utils/scroll-observer'
 
