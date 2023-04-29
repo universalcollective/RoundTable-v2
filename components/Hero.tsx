@@ -19,73 +19,69 @@ const Hero = () => {
     return 0.2
   }
 
-    const numOfPages = 4
+  const numOfPages = 4
 
-    if (elContainer) {
-      const { clientHeight, offsetTop } = elContainer
-      const screenHeight = window.innerHeight
-      const screenHalfHeight = screenHeight / 2
-      const percentY =
-        Math.min(
-          clientHeight + screenHalfHeight,
-          Math.max(-screenHeight, scrollY - offsetTop) + screenHalfHeight
-        ) / clientHeight
-      progress = Math.min(numOfPages - 0.5, Math.max(0.5, percentY * numOfPages))
-    }
+  if (elContainer) {
+    const { clientHeight, offsetTop } = elContainer
+    const screenHeight = window.innerHeight
+    const screenHalfHeight = screenHeight / 2
+    const percentY =
+      Math.min(
+        clientHeight + screenHalfHeight,
+        Math.max(-screenHeight, scrollY - offsetTop) + screenHalfHeight
+      ) / clientHeight
+    progress = Math.min(numOfPages - 0.5, Math.max(0.5, percentY * numOfPages))
+  }
 
-    return (
+  return (
+    <div>
+      <div
+        ref={refContainer}
+        className="min-h-screen min-w-screen sticky -z-10 top-0 left-0"
+        style={{ transform: `translateY(-${progress * 20}vh)` }}
+      >
+        <Image
+          width={2400}
+          height={1600}
+          src="/bg.jpg"
+          alt="hero image"
+          className="object-cover absolute w-full h-full"
+        />
+      </div>
 
-      <div>
+      <section className="w-full bg-white text-custom-100">
         <div
           ref={refContainer}
-          className="min-h-screen min-w-screen sticky -z-10 top-0 left-0"
-          style={{ transform: `translateY(-${progress * 20}vh)` }}
+          className="text-4xl lg:text-6xl px-5 font-semibold leading-none tracking-tight py-10 lg:py-20 mx-auto max-w-3xl"
         >
-          <Image
-            width={2400}
-            height={1600}
-            src="/bg.jpg"
-            alt="hero image"
-            className="object-cover absolute w-full h-full"
-          />
-        </div>
-
-        <section className="w-full bg-white text-custom-100">
-          <div
-            ref={refContainer}
-            className="text-4xl lg:text-6xl px-5 font-semibold leading-none tracking-tight py-20 lg:py-40 mx-auto max-w-3xl  "
+          <span
+            className={`transition-opacity ease-in-out duration-400 after:content-['_'] block mb-2`}
+            style={{ opacity: opacityForBlock(progress, 0) }}
           >
-            <span
-              className={`transition-opacity ease-in-out duration-400 after:content-['_']`}
-              style={{ opacity: opacityForBlock(progress, 0) }}
-            >
-              Round Table,
-            </span>
-            <span
-              className={`transition-opacity ease-in-out duration-700 after:content-['_']`}
-              style={{ opacity: opacityForBlock(progress, 1) }}
-            >
-              the ultimate destination
-            </span>
-            <span
-              className={`transition-opacity ease-in-out duration-500 after:content-['_']`}
-              style={{ opacity: opacityForBlock(progress, 2) }}
-            >
-              for independent creators to unleash their full potential
-            </span>
-            <span
-              className={`transition-opacity ease-in-out duration-500 after:content-['_']`}
-              style={{ opacity: opacityForBlock(progress, 3) }}
-            >
-              and take center stage.
-            </span>
+            Round Table,
+          </span>
+          <span
+            className={`transition-opacity ease-in-out duration-700 after:content-['_'] block mb-2`}
+            style={{ opacity: opacityForBlock(progress, 1) }}
+          >
+            the ultimate destination
+          </span>
+          <span
+            className={`transition-opacity ease-in-out duration-500 after:content-['_'] block mb-2`}
+            style={{ opacity: opacityForBlock(progress, 2) }}
+          >
+            for independent creators to unleash their full potential
+          </span>
+          <span
+            className={`transition-opacity ease-in-out duration-500 after:content-['_'] block mb-2`}
+            style={{ opacity: opacityForBlock(progress, 3) }}
+          >
+            and take center stage.
+          </span>
+        </div>
+      </section>
+    </div>
+  );
+};
 
-          </div>
-        </section>
-
-
-      </div>
-    );
-  };
-
-  export default Hero; 
+export default Hero; 
