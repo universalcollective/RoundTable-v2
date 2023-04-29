@@ -9,6 +9,8 @@ const MusicPlayer: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const [isMinimized, setIsMinimized] = useState(false);
+
 
   const handlePlayPause = () => {
     if (audioRef.current) {
@@ -21,6 +23,18 @@ const MusicPlayer: React.FC = () => {
       }
     }
   };
+
+  useEffect(() => {
+    const threshold = 700; // set your own threshold value here
+    const handleResize = () => {
+      setIsMinimized(window.innerWidth < threshold);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+
 
   useEffect(() => {
     if (audioRef.current) {
@@ -51,7 +65,7 @@ const MusicPlayer: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-4 left-4 rounded-lg bg-white p-3 shadow-md">
+   <div className={`fixed bottom-4 left-4 rounded-lg bg-white p-3 shadow-md ${isMinimized ? 'minimized' : ''}`}>
       <div className="flex items-center">
         <audio ref={audioRef} src="/eym.mp3" />
         <button
