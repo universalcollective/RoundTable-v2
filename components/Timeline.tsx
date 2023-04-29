@@ -5,16 +5,17 @@ import 'aos/dist/aos.css';
 const Timeline = () => {
   useEffect(() => {
     AOS.init({
-      duration: 800,
-      easing: 'ease-in-out',
-      mirror: true
+      duration: 1000, 
+      easing: 'ease-in-out', 
+      offset: 120, 
+      delay: 200
     });
   }, []);
 
   return (
     <section>
       <div className="bg-white text-black py-8">
-        <div className="container mx-auto flex flex-col items-start md:flex-row my-12 md:my-24">
+        <div className="container mx-auto flex flex-col items-start md:flex-row my-10 md:my-24">
         <div data-aos="fade-right" className="flex flex-col w-full sticky md:top-36 lg:w-1/3 mt-2 md:mt-12 px-8">
             <p className="ml-2 text-custom uppercase tracking-loose">OUR CREATIVE PROCESS</p>
             <p className="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2">So, what's next?</p>
@@ -44,7 +45,7 @@ const Timeline = () => {
                 <div className="border-2-2 border-red-800 absolute h-full border"
                   style={{ left: '50%', border: '2px solid #b12f12', borderRadius: '1%' }}>
                 </div>
-                <div data-aos="fade-down" className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                <div data-aos="fade-up" className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4 text-right">
                     <p className="mb-3 text-base text-custom">1-7 June, 2023</p>
