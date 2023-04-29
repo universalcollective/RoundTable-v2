@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Timeline = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      mirror: true
+    });
+  }, []);
+
   return (
     <section>
       <div className="bg-white text-black py-8">
         <div className="container mx-auto flex flex-col items-start md:flex-row my-12 md:my-24">
-          <div className="flex flex-col w-full sticky md:top-36 lg:w-1/3 mt-2 md:mt-12 px-8">
+        <div data-aos="fade-right" className="flex flex-col w-full sticky md:top-36 lg:w-1/3 mt-2 md:mt-12 px-8">
             <p className="ml-2 text-custom uppercase tracking-loose">OUR CREATIVE PROCESS</p>
             <p className="text-3xl md:text-4xl leading-normal md:leading-relaxed mb-2">So, what's next?</p>
             <p className="text-sm md:text-base text-gray-800 mb-4">
@@ -34,7 +44,7 @@ const Timeline = () => {
                 <div className="border-2-2 border-red-800 absolute h-full border"
                   style={{ left: '50%', border: '2px solid #b12f12', borderRadius: '1%' }}>
                 </div>
-                <div className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                <div data-aos="fade-down" className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4 text-right">
                     <p className="mb-3 text-base text-custom">1-7 June, 2023</p>
@@ -44,7 +54,7 @@ const Timeline = () => {
                     </p>
                   </div>
                 </div>
-                <div className="mb-8 flex justify-between items-center w-full right-timeline">
+                <div data-aos="fade-left" className="mb-8 flex justify-between items-center w-full right-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4 text-left">
                     <p className="mb-3 text-base text-custom">8-14 June, 2023</p>
@@ -54,7 +64,7 @@ const Timeline = () => {
                     </p>
                   </div>
                 </div>
-                <div className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                <div data-aos="fade-up" className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4 text-right">
                     <p className="mb-3 text-base text-custom">15-21 June, 2023</p>
@@ -65,7 +75,7 @@ const Timeline = () => {
                   </div>
                 </div>
 
-                <div className="mb-8 flex justify-between items-center w-full right-timeline">
+                <div data-aos="fade-left"className="mb-8 flex justify-between items-center w-full right-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1  w-5/12 px-1 py-4">
                     <p className="mb-3 text-base text-custom">22-28 June, 20231</p>
@@ -75,7 +85,7 @@ const Timeline = () => {
                     </p>
                   </div>
                 </div>
-                <div className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                <div data-aos="fade-right" className="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1 w-5/12 px-1 py-4 text-right">
                     <p className="mb-3 text-base text-custom">29 June - 5 July, 2023</p>
@@ -85,7 +95,7 @@ const Timeline = () => {
                     </p>
                   </div>
                 </div>
-                <div className="mb-8 flex justify-between items-center w-full right-timeline">
+                <div data-aos="fade-left" className="mb-8 flex justify-between items-center w-full right-timeline">
                   <div className="order-1 w-5/12"></div>
                   <div className="order-1  w-5/12 px-1 py-4">
                     <p className="mb-3 text-base text-custom">6 July, 2023 onwards</p>
