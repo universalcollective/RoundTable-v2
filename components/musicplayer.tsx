@@ -33,7 +33,7 @@ const MusicPlayer: React.FC = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  
+
 
 
   useEffect(() => {
@@ -65,25 +65,33 @@ const MusicPlayer: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-4 left-4 rounded-lg bg-white p-3 shadow-md">
+    <div className={`fixed bottom-4 left-4 rounded-lg bg-white p-3 shadow-md ${isMinimized ? 'w-20' : 'w-90'}`}>
       <div className="flex items-center">
         <audio ref={audioRef} src="/eym.mp3" />
-        {isMinimized ? (
-          <button className="rounded-md px-2 py-1 text-black" onClick={handlePlayPause}>
-            {isPlaying ? <PauseIcon fontSize="medium" /> : <PlayArrowIcon fontSize="medium" />}
-          </button>
-        ) : (
-          <>
-            <button className="rounded-md px-2 py-1 text-black" onClick={handlePlayPause}>
-              {isPlaying ? <PauseIcon fontSize="medium" /> : <PlayArrowIcon fontSize="medium" />}
-            </button>
-            <div className="ml-4">
-              <div className="text-sm font-semibold" style={{ color: '#b12f12' }}>
-                Ease Your Mind
-              </div>
-              <div className="text-xs text-gray-500">GRiZ x Ganja White Night</div>
-              <div className="text-xs text-gray-500">{formatTime(currentTime)}</div>
+        <button
+          className="rounded-md px-2 py-1 text-black"
+          onClick={handlePlayPause}
+          style={{ display: isMinimized ? 'block' : 'inline-block' }}
+        >
+          {isPlaying ? (
+            <PauseIcon fontSize="medium" />
+          ) : (
+            <PlayArrowIcon fontSize="medium" />
+          )}
+        </button>
+        {!isMinimized && (
+          <div className="ml-4">
+            <div className="text-sm font-semibold" style={{ color: '#b12f12' }}>
+              Ease Your Mind
             </div>
+            <div className="text-xs text-gray-500">GRiZ x Ganja White Night</div>
+            <div className="text-xs text-gray-500">
+              {formatTime(currentTime)}
+            </div>
+          </div>
+        )}
+        {!isMinimized && (
+          <>
             <button className="ml-4 text-black">
               <VolumeUpIcon fontSize="small" />
             </button>
@@ -102,6 +110,6 @@ const MusicPlayer: React.FC = () => {
       </div>
     </div>
   );
-        }  
+};
 
 export default MusicPlayer;
